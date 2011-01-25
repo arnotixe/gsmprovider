@@ -1,0 +1,31 @@
+gsmprovider is a tool for checking what provider different [cell phone] numbers belong to.
+
+WHY?
+----
+Historically you could very easily see what provider was tied to a number, since each provider got their own range of numbers. For example, everything starting with 08 in Ecuador would be Movistar, and 09 something would be Porta. But now, in many countries you now have number portability. That means you can keep your phone number even if you change providers. There's no way to tell what provider the number belongs to. Unless calling a super-expensive customer "care" center.
+
+OK I GOT THAT, BUT _WHY_ FIND THE PROVIDER?
+-------------------------------------------
+Calls between numbers having the same provider generally cost less than calls between different providers. An intelligent PBX (private phone central) would check the first digits of the phone number and route the outgoing call through different networks, whatever was the cheapest. Now that there's no official way to find the provider of a number, that method doesn't work anymore. This is where gsmprovider comes into the picture. Say you want to find out who's providing the number 083228730. The PBX just queries http://example.com/gsmprovider/?s=083228730 and finds it's type 1, Movistar. Now it can route the call through the Movistar network :D
+Since the biggest savings are on national calls, it shouldn't be necessary to add support for country selection. However it is there, in case someone needs it.
+
+REQUIREMENTS
+------------
+-apache
+-mysql
+-php
+
+INSTALL
+-------
+1) Copy these files into a directory of your web server
+2) Create a database and grant rights on that base to some user
+3) Edit defs.php to reflect database server, [database]name, user and password.
+
+You're live!
+
+OH NO, MY DATABASE CONTAINS ZERO NUMBERS!
+-----------------------------------------
+Yes, someone will have to add the numbers to the database.
+
+(c) Arno Teigseth 2011-> under GPL3 (http://www.gnu.org/licenses/gpl-3.0.html). The data is released under ODbL (http://www.opendatacommons.org/licenses/odbl/). Not sure if I can force that license on the data, though :/
+
