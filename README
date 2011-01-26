@@ -23,6 +23,11 @@ INSTALL
 
 You're live!
 
+USE
+---
+go to http://installation_dir/ to search
+to operate in "raw mode",  http://installation_dir/?m=r&s=<number>
+
 OH NO, MY DATABASE CONTAINS ZERO NUMBERS!
 -----------------------------------------
 Yes, someone will have to add the numbers to the database.
